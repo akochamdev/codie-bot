@@ -30,6 +30,6 @@ client.on(Events.Error, (error) => {
     logger.error(`Received discord client error: `, error);
 });
 
-client.login(process.env.TOKEN).then(() => {
+client.login(process.env.CODIE_TOKEN).then(() => {
     logger.info("Codie Bot is logged in.");
 });

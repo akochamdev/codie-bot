@@ -17,11 +17,11 @@ import { getCommands } from "./utils/command-utils";
  */
 dotenv.config();
 
-const clientId = process.env.CLIENT_ID || "";
+const clientId = process.env.CODIE_CLIENT_ID || "";
 const jsonCommands = getCommands().map(command => command.definition.toJSON());
 
-if (process.env.TOKEN) {
-    const rest = new REST({version: "9"}).setToken(process.env.TOKEN);
+if (process.env.CODIE_TOKEN) {
+    const rest = new REST({version: "9"}).setToken(process.env.CODIE_TOKEN);
     (async () => {
         try {
             if (jsonCommands.length > 0) {
