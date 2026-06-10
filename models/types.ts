@@ -117,27 +117,27 @@ export type RelatedCard = {
 export type CardFace = {
     artist?: string;
     artist_id?: string;
-    cmc: number;
-    color_identity: string[];
+    cmc?: number;
     color_indicator?: string[];
     colors?: string[];
     defense?: string;
-    edhrec_rank?: number;
-    game_changer?: boolean;
-    hand_modifier?: string;
-    keywords: string[];
-    legalities: Object;
-    life_modifier?: string;
+    flavor_text?: string;
+    illustration_id?: string;
+    image_uris?: ImageUris;
+    layout?: string;
     loyalty?: string;
-    mana_cost?: string;
+    mana_cost: string;
     name: string;
+    object: string;
+    oracle_id?: string;
     oracle_text?: string;
-    penny_rank?: number;
     power?: string;
-    produced_mana?: string[];
-    reserved: boolean;
+    printed_name?: string;
+    printed_text?: string;
+    printed_type_line?: string;
     toughness?: string;
-    type_line: string;
+    type_line?: string;
+    watermark?: string;
 };
 
 export type ImageUris = {

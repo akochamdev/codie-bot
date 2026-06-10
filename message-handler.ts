@@ -104,11 +104,21 @@ function galleryContainer(cards: Card[]): ContainerBuilder {
     let container = new ContainerBuilder()
         .setAccentColor(ComponentColors.Normal);
 
-    const items = cards.map(card => {
-        return new MediaGalleryItemBuilder()
-            .setDescription(card.name)
-            .setURL(card.image_uris?.large || '');
-    });
+    const items: MediaGalleryItemBuilder[] = [];
+    for (const card of cards) {
+        if (card.card_faces) {
+            for (const face of card.card_faces) {
+                items.push(new MediaGalleryItemBuilder()
+                .setDescription(face.name)
+                .setURL(face.image_uris?.large || ''));
+            }
+        } else {
+            items.push(new MediaGalleryItemBuilder()
+                .setDescription(card.name)
+                .setURL(card.image_uris?.large || ''));
+        }
+    }
+    
     container.addMediaGalleryComponents(new MediaGalleryBuilder().addItems(items));
 
     return container;
